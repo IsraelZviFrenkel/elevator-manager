@@ -16,7 +16,7 @@ class Elevator:
     def __init__(self, num):
         self.num = num
         self.image = pygame.transform.scale(pygame.image.load(ELEVATOR_IMAGE_PATH), (ELEVATOR_WIDTH, ELEVATOR_HEIGHT))
-        self.pos = (FLOOR_WIDTH + 10 + num * ELEVATOR_WIDTH, SURFACE_HEIGHT - 80)
+        self.pos = (FLOOR_WIDTH + MARGIN + num * ELEVATOR_WIDTH, SURFACE_HEIGHT - 80)
         self.current_floor = 0
         self.tasks = []
         self.tasks_time = 0

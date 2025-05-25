@@ -45,10 +45,8 @@ class Floor:
     def update_button(self, delta_time):
         if self.timer > 0:
             self.timer -= max(delta_time, 0)
-            color = RED
         else:
             self.timer = 0
-            color = GREEN
 
 
 

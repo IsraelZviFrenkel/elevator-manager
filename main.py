@@ -4,7 +4,6 @@ from floor import *
 
 pygame.init()
 
-clock = pygame.time.Clock()
 
 # Show the visible screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -49,5 +48,4 @@ while run:
     screen.blit(world_surface, (0, 0), (0, offset_y, SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
-    clock.tick(60)  # 60 updates per second
     pygame.display.update()

@@ -23,6 +23,11 @@ class Building:
 
     # Check which elevator it will take the shortest time to arrive the current floor
     def allocate_elevator(self, pos_y):
+        """
+        function
+        :param pos_y:
+        :return:
+        """
         min_time = float("inf")
         chosen_elevator = None
         for elevator in self.elevators:
@@ -38,7 +43,7 @@ class Building:
         for floor in self.floors:
             if floor.press_button(pos):
                 chosen_elevator, min_time = self.allocate_elevator(floor.pos[1])
-                # Check if there is elevator in the floor, or an elevator was invited already
+                # Check if there is an elevator in the floor, or an elevator was invited already
                 if floor.level != chosen_elevator.current_floor and not floor.elevator_on_the_way:
                     floor.timer = min_time
                     floor.elevator_on_the_way = True
