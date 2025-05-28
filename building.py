@@ -5,10 +5,12 @@ class Building:
     def __init__(self, num_of_floors, num_of_elevators):
         self.floors = [Floor(i) for i in range(num_of_floors)]
         self.elevators = [Elevator(i) for i in range(num_of_elevators)]
-
+        self.size = FLOOR_WIDTH + num_of_elevators * ELEVATOR_WIDTH + 100
     # This function call for each floor and each elevator to draw themselves
 
-    def draw(self, world, delta_time):
+    def draw(self, delta_time):
+        world = pygame.Surface((self.size, SURFACE_HEIGHT))
+        world.fill(WHITE)
         for level in range(len(self.floors) - 1):  # Call the all floors except the last one
             self.floors[level].draw(world)
             self.floors[level].update_button(delta_time)
@@ -20,6 +22,8 @@ class Building:
         for elevator in self.elevators:
             elevator.draw(world)
             elevator.update(delta_time)
+
+        return world
 
     # Check which elevator it will take the shortest time to arrive the current floor
     def allocate_elevator(self, pos_y):

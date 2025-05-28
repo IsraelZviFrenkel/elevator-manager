@@ -1,6 +1,10 @@
 
-NUM_OF_FLOORS = 10
-NUM_OF_ELEVATORS = 2
+STREET = [(5, 1), (10, 2), (20, 3)]
+
+NUM_OF_FLOORS = 0
+for i in STREET:
+    if i[0] > NUM_OF_FLOORS:
+        NUM_OF_FLOORS = i[0]
 
 MARGIN = 10
 
