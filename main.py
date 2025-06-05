@@ -23,7 +23,7 @@ offset_y = SURFACE_HEIGHT - SCREEN_HEIGHT
 previous_update = pygame.time.get_ticks()
 
 
-# Create an object of building class
+# Create an object of street class
 street = Street(STREET)
 # Loop to run the game
 run = True
@@ -36,10 +36,6 @@ while run:
             if event.button == 1:
                 event_pos = (event.pos[0] + offset_x, event.pos[1] + offset_y)
                 street.if_elevator_was_invited(event_pos)
-            elif event.button == 4:
-                offset_y = max(0, offset_y - scroll_speed)  # Scroll the screen up
-            elif event.button == 5:
-                offset_y = min(SURFACE_HEIGHT - SCREEN_HEIGHT ,offset_y + scroll_speed) # Scroll the screen down
         elif event.type == pygame.MOUSEWHEEL:
             offset_y = min(max(offset_y - event.y * scroll_speed, 0), SURFACE_HEIGHT - SCREEN_HEIGHT)
             offset_x = min(max(offset_x - event.x * scroll_speed, 0), street.total_width - SCREEN_WIDTH)
